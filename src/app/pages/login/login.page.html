@@ -1,0 +1,45 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="back-circle"></div>
+    <ion-title class="ion-text-center custom-font">Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding formLogin">
+    <form [formGroup]="formLogin">
+      <div class="wrap-input">
+        <input
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          [(ngModel)]="email"
+        />
+      </div>
+
+      <div class="wrap-input">
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          formControlName="password"
+          [(ngModel)]="password"
+        />
+      </div>
+
+      <div class="buttonsForm">
+        <button class="buttonPrimary" (click)="login()">Se connecter</button>
+        <button class="facebookButton">
+          <ion-icon name="logo-facebook"></ion-icon> Facebook
+        </button>
+      </div>
+
+      <p><a>Réinitialiser mot de passe</a></p>
+      <p><a (click)="registerPage()">Nouveau membre </a></p>
+    </form>
+  </div>
+</ion-content>

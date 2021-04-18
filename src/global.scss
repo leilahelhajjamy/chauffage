@@ -1,0 +1,203 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/variables.scss";
+
+$darkPurple: #160c28;
+$white: #fff;
+$flame: #d74e09;
+$orangeCrayolla: #efcb68;
+$bdazzledBlue: #40587a;
+
+@font-face {
+  font-family: "digital";
+  src: url("assets/fonts/digital-7.ttf"); //mine
+}
+
+ion-toolbar {
+  --background: #f8edeb;
+}
+ion-content {
+  --background: #f8edeb;
+
+  .wrap-input {
+    background-color: $white;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    margin: auto;
+    margin-bottom: 4%;
+    height: 43;
+    box-shadow: 0 10px 10px 0px rgba(57, 71, 82, 0.5);
+  }
+
+  input {
+    width: 100%;
+    background: transparent;
+    font-family: Josefin Sans;
+    font-size: 15px;
+    height: 2.5em;
+    padding: 0 20px 0 20px;
+    color: $darkPurple;
+    border: none;
+    outline: none;
+  }
+  .buttonPrimary {
+    font-family: Josefin Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    min-width: 180px;
+    min-height: 33px;
+    background-color: #160c28;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    transition: all 0.4s;
+    margin-bottom: 5%;
+  }
+  .facebookButton {
+    font-family: Josefin Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    min-width: 180px;
+    min-height: 33px;
+    background-color: $bdazzledBlue;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    transition: all 0.4s;
+    margin-bottom: 5%;
+  }
+  .googleButton {
+    font-family: Josefin Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    min-width: 180px;
+    min-height: 33px;
+    background-color: $flame;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    transition: all 0.4s;
+  }
+
+  .buttonsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+  }
+
+  .time {
+    font-family: "digital";
+    font-size: 50px;
+    color: $flame;
+    text-shadow: 2px 2px #4f4e4d;
+  }
+  .date {
+    font-family: Josefin Sans;
+    font-size: 30px;
+    color: $bdazzledBlue;
+    margin-bottom: 10px;
+  }
+
+  .digitalClock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1235;
+    min-width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    border: solid 12px $darkPurple;
+    margin-bottom: 3%;
+  }
+  .timeAndDate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .itemConfort {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $orangeCrayolla;
+    min-width: 200px;
+    height: 70px;
+    border-radius: 20px;
+    border: solid 12px $darkPurple;
+    margin-bottom: 3%;
+  }
+  .itemEconom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $bdazzledBlue;
+    min-width: 200px;
+    height: 70px;
+    border-radius: 20px;
+    border: solid 12px $darkPurple;
+    margin-bottom: 3%;
+  }
+  .itemConPlus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $flame;
+    min-width: 200px;
+    height: 70px;
+    border-radius: 20px;
+    border: solid 12px $darkPurple;
+    margin-bottom: 3%;
+  }
+}
+.my-label {
+  color: #ffffff !important;
+  font-family: Josefin Sans;
+}
+
+ion-item {
+  --background: transparent !important;
+}
+
+ion-icon {
+  color: $flame;
+  font-size: 24px;
+}
+ion-tab-button {
+  --background: #f8edeb;
+}

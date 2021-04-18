@@ -1,0 +1,7 @@
+{
+  "name": "Chauffage",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

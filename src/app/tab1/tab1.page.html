@@ -1,0 +1,34 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title><p class="ion-text-center">Welcome</p> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="timeAndDate">
+  <div class="timeAndDate">
+    <p class="date">{{day}}</p>
+    <div class="digitalClock">
+      <p class="time">{{dateAndTime()}}</p>
+    </div>
+
+    <ion-item>
+      <div class="itemConfort">
+        <ion-label><p class="my-label">Mode Economique</p></ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="itemEconom">
+        <ion-label><p class="my-label">Mode Confort</p></ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="itemConPlus">
+        <ion-label><p class="my-label">Mode Confort Plus</p></ion-label>
+      </div>
+    </ion-item>
+  </div>
+</ion-content>
