@@ -123,6 +123,12 @@ ion-content {
     color: $flame;
     text-shadow: 2px 2px #4f4e4d;
   }
+  .temp {
+    font-family: "digital";
+    font-size: 20px;
+    color: $flame;
+  }
+
   .date {
     font-family: Josefin Sans;
     font-size: 30px;
@@ -142,10 +148,29 @@ ion-content {
     border: solid 12px $darkPurple;
     margin-bottom: 3%;
   }
+
+  .digitalTemp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 90px;
+    height: 70px;
+    border-radius: 12px;
+    margin-bottom: 3%;
+  }
+
   .timeAndDate {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
+  .temps {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
   }
   .itemConfort {
@@ -189,7 +214,37 @@ ion-content {
   color: #ffffff !important;
   font-family: Josefin Sans;
 }
+.formConfigManuele {
+  margin: auto;
+  width: 80%;
+}
+.reservationInfo {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: solid 6px $darkPurple;
+  border-radius: 12px;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  background-color: white;
+}
 
+.rowDiv {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.digital {
+  font-family: "digital";
+  font-size: 20px;
+  color: $flame;
+  margin-top: 16px;
+}
 ion-item {
   --background: transparent !important;
 }

@@ -1,17 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> <p class="ion-text-center">Votre Réservation</p> </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content [fullscreen]="true" class="timeAndDate">
+  <div class="reservationInfo">
+    <div class="rowDiv">
+      <p>Heure d'utilisation :</p>
+      <p class="digital">{{time}}</p>
+    </div>
+    <div class="rowDiv">
+      <p>Durée nécessaire :</p>
+      <p class="digital">{{Reservation.Dn}} <sub>min</sub></p>
+    </div>
+    <div class="rowDiv">
+      <p>Température désirée :</p>
+      <p class="digital">{{Reservation.Td}} <sub>°C</sub></p>
+    </div>
+    <div class="rowDiv">
+      <p>Energie nécessaire :</p>
+      <p class="digital">{{Reservation.Wn}} <sub>Whatt-heure</sub></p>
+    </div>
+    <div class="rowDiv">
+      <p>Coût nécessaire :</p>
+      <p class="digital">{{Reservation.Cn}} <sub>Dhs</sub></p>
+    </div>
+    <div class="rowDiv">
+      <p>Quantité d'eau :</p>
+      <p class="digital">{{Reservation.Qed}} <sub>L</sub></p>
+    </div>
+  </div>
 </ion-content>

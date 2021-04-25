@@ -1,0 +1,62 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<ion-content [fullscreen]="true" class="timeAndDate">
+  <div class="timeAndDate">
+    <p class="date">{{day}}</p>
+    <div class="digitalClock">
+      <p class="time">{{dateAndTime()}}</p>
+    </div>
+  </div>
+  <div class="temps">
+    <div class="digitalTemp">
+      <h6 style="margin-bottom: -15%; font-size: 12px">Tambiante</h6>
+      <p class="temp">23 °C</p>
+    </div>
+    <div class="digitalTemp">
+      <h6 style="margin-bottom: -15%; font-size: 12px">T l'eau chaude</h6>
+      <p class="temp">43 °C</p>
+    </div>
+    <div class="digitalTemp">
+      <h6 style="margin-bottom: -15%; font-size: 12px">T chauffe eau</h6>
+      <p class="temp">33 °C</p>
+    </div>
+  </div>
+
+  <div class="formConfigManuele">
+    <form [formGroup]="formConfig">
+      <div class="wrap-input">
+        <input
+          type="number"
+          placeholder="Température désirée"
+          formControlName="Td"
+          [(ngModel)]="Td"
+        />
+      </div>
+
+      <div class="wrap-input">
+        <input
+          type="number"
+          placeholder="Quantité d'eau désirée"
+          formControlName="Qed"
+          [(ngModel)]="Qed"
+        />
+      </div>
+      <ion-item>
+        <ion-label>HH:mm</ion-label>
+        <ion-datetime
+          displayFormat="HH:mm"
+          [(ngModel)]="heureEntree"
+          formControlName="heureEntree"
+          (ionChange)="faisabilite()"
+        ></ion-datetime>
+      </ion-item>
+
+      <div class="buttonsForm">
+        <button class="buttonPrimary" (click)="ConfirmQandT()">Entrer</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

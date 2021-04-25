@@ -8,6 +8,7 @@ import { AuthguardService } from './authguard.service';
   providedIn: 'root',
 })
 export class AuthService {
+  User;
   constructor(
     private fireAuth: AngularFireAuth,
     private authGuard: AuthguardService,
@@ -21,6 +22,7 @@ export class AuthService {
       .then((user) => {
         console.log(user, 'logged in');
         localStorage.setItem('loggedIn', 'yes ');
+        localStorage.setItem('uid', user.user.uid);
         this.authGuard.canActivate();
         if (this.authGuard.canActivate()) {
           this.router.navigate(['']);
@@ -63,5 +65,9 @@ export class AuthService {
       this.authGuard.canActivate();
       console.log('loggedOut');
     });
+  }
+
+  getUserLoggedIin() {
+    this.User = localStorage.getItem('uid');
   }
 }

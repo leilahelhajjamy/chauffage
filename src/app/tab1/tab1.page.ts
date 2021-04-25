@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab1Page {
   day;
-  constructor() {}
+  constructor(private navCtrl: NavController, private router: Router) {}
 
   ngOnInit() {
     setInterval(() => {
@@ -30,5 +32,22 @@ export class Tab1Page {
       dateNowS.split(' ')[3];
     dateNowS = dateNowS.split(' ')[4];
     return dateNowS;
+  }
+
+  ConfigurationChoixEco() {
+    var eco = 'economique';
+    localStorage.setItem('mode', eco);
+
+    this.navCtrl.navigateForward('tab2');
+  }
+  ConfigurationChoixCon() {
+    var conf = 'confort';
+    localStorage.setItem('mode', conf);
+    this.navCtrl.navigateForward('tab2');
+  }
+  ConfigurationChoixConfP() {
+    var confP = 'confortPlus';
+    localStorage.setItem('mode', confP);
+    this.navCtrl.navigateForward('tab2');
   }
 }

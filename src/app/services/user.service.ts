@@ -29,4 +29,19 @@ export class UserService {
         console.log('error when registering', err);
       });
   }
+
+  saveConsommation(uid, timestamp, Wn, Qe) {
+    let UtilisationDetails = {
+      uid: uid,
+      timestamp: timestamp,
+      Wn: Wn,
+      Qe: Qe,
+    };
+    let reservations = {
+      uid: uid,
+      timestamp: timestamp,
+    };
+    this.fdb.list(`/utilisations/`).push(UtilisationDetails);
+    this.fdb.list(`/reservations/`).push(reservations);
+  }
 }

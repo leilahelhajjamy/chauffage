@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
-
-  constructor() {}
-
+  type;
+  constructor(private router: Router, private route: ActivatedRoute) {}
+  ngOnInit() {
+    this.type = localStorage.getItem('mode');
+  }
 }
