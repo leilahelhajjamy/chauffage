@@ -79,6 +79,27 @@ ion-content {
     transition: all 0.4s;
     margin-bottom: 5%;
   }
+
+  .buttonPrimaryPriere {
+    font-family: Josefin Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    min-width: 100px;
+    min-height: 33px;
+    background: url("./assets/priere.jpg") no-repeat;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    transition: all 0.4s;
+    margin-bottom: 5%;
+  }
+  .buttonPrimaryPriere:active {
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
   .facebookButton {
     font-family: Josefin Sans;
     display: flex;
@@ -149,6 +170,18 @@ ion-content {
     margin-bottom: 3%;
   }
 
+  .digitalClockPriere {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./assets/priere.jpg");
+    min-width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    margin-bottom: 3%;
+  }
+
   .digitalTemp {
     display: flex;
     flex-direction: column;
@@ -181,8 +214,7 @@ ion-content {
     background-color: $orangeCrayolla;
     min-width: 200px;
     height: 70px;
-    border-radius: 20px;
-    border: solid 12px $darkPurple;
+    border-radius: 8px;
     margin-bottom: 3%;
   }
   .itemEconom {
@@ -193,8 +225,7 @@ ion-content {
     background-color: $bdazzledBlue;
     min-width: 200px;
     height: 70px;
-    border-radius: 20px;
-    border: solid 12px $darkPurple;
+    border-radius: 8px;
     margin-bottom: 3%;
   }
   .itemConPlus {
@@ -205,8 +236,7 @@ ion-content {
     background-color: $flame;
     min-width: 200px;
     height: 70px;
-    border-radius: 20px;
-    border: solid 12px $darkPurple;
+    border-radius: 8px;
     margin-bottom: 3%;
   }
 }

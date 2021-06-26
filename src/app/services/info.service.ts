@@ -8,6 +8,10 @@ import { ToastController } from '@ionic/angular';
   providedIn: 'root',
 })
 export class InfoService {
+  TempAmbiante: any;
+  TempChauffe: any;
+  QuantiteEau: any;
+  TempEauActuelle: any;
   constructor(
     private fireAuth: AngularFireAuth,
     private fdb: AngularFireDatabase,
@@ -27,6 +31,20 @@ export class InfoService {
   }
   getTempEauActuelle() {
     return 43;
+  }
+
+  setTempAmbiante(temp) {
+    this.TempAmbiante = temp;
+  }
+
+  setTempChauffe(temp) {
+    this.TempChauffe = temp;
+  }
+  setQuantiteEau(temp) {
+    this.QuantiteEau = temp;
+  }
+  setTempEauActuelle(temp) {
+    this.TempEauActuelle = temp;
   }
 
   faisibiliteReservation(after, before) {
@@ -78,6 +96,63 @@ export class InfoService {
         default:
       }
       console.log('Dn infoService', Dn);
+      return Dn;
+    } else if (mode == 'confort') {
+      switch (Td) {
+        case 43:
+          if (Qed == 10) {
+            Dn = 30;
+          } else if (Qed == 15) {
+            Dn = 60;
+          } else if (Qed == 20) {
+            Dn = 90;
+          }
+          break;
+        case 50:
+          if (Qed == 10) {
+            Dn = 10;
+          } else if (Qed == 15) {
+            Dn = 15;
+          } else if (Qed == 20) {
+            Dn = 20;
+          }
+          break;
+        default:
+      }
+      console.log('Dn infoService', Dn);
+      return Dn;
+    } else if (mode == 'confortPlus') {
+      console.log('immediate');
+      Dn = 1;
+      return Dn;
+    }
+  }
+
+  CalculDnPriere(Qed, Td, mode) {
+    let Dn;
+    if (mode == 'economique' || mode == 'confort') {
+      switch (Td) {
+        case 43:
+          if (Qed == 3) {
+            Dn = 1;
+          } else if (Qed == 5) {
+            Dn = 2;
+          }
+          break;
+        case 50:
+          if (Qed == 3) {
+            Dn = 1;
+          } else if (Qed == 5) {
+            Dn = 2;
+          }
+          break;
+        default:
+      }
+      console.log('Dn infoService', Dn);
+      return Dn;
+    } else if (mode == 'confortPlus') {
+      console.log('immediate');
+      Dn = 1;
       return Dn;
     }
   }

@@ -5,8 +5,9 @@
 
 <ion-content [fullscreen]="true" class="timeAndDate">
   <div class="timeAndDate">
+    <p>Configuration prière</p>
     <p class="date">{{day}}</p>
-    <div class="digitalClock">
+    <div class="digitalClockPriere">
       <p class="time">{{dateAndTime()}}</p>
     </div>
   </div>
@@ -52,9 +53,8 @@
             formControlName="Qed"
             [(ngModel)]="Qed"
           >
-            <ion-select-option value="10">10 Litres</ion-select-option>
-            <ion-select-option value="15">15 Litres</ion-select-option>
-            <ion-select-option value="20">20 Litres</ion-select-option>
+            <ion-select-option value="3">3 Litres</ion-select-option>
+            <ion-select-option value="5">5 Litres</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
@@ -69,8 +69,11 @@
       </ion-item>
 
       <div class="buttonsForm">
-        <button class="buttonPrimary" (click)="ConfirmQandT()">Entrer</button>
+        <button class="buttonPrimaryPriere" (click)="ConfirmQandT()">
+          Entrer
+        </button>
       </div>
     </form>
   </div>
+  <p class="ion-text-center"><a>Configuration hebdomadaire</a></p>
 </ion-content>

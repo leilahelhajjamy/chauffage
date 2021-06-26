@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -15,14 +14,15 @@ import { InfoService } from '../services/info.service';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-configuration-manuelle',
-  templateUrl: './configuration-manuelle.page.html',
-  styleUrls: ['./configuration-manuelle.page.scss'],
+  selector: 'app-configuration-automatique',
+  templateUrl: './configuration-automatique.page.html',
+  styleUrls: ['./configuration-automatique.page.scss'],
 })
-export class ConfigurationManuellePage implements OnInit {
+export class ConfigurationAutomatiquePage implements OnInit {
+  formConfigPriere;
+  formConfig: FormGroup;
   possibilite = true;
   day;
-  formConfig: FormGroup;
   Qed;
   Td;
   Dn;
@@ -85,50 +85,14 @@ export class ConfigurationManuellePage implements OnInit {
     return this.infoService.getTempChauffe();
   }
 
-  CalculDn() {
-    return this.infoService.CalculDn(this.Qed, this.Td, this.Mode);
-  }
-
-  faisabilite() {
-    this.Dn = this.CalculDn();
-    let minRequis = this.Dn * 60000 + new Date().getTime();
-    let timeStampEntree = new Date(this.heureEntree).getTime();
-    this.fdb
-      .object('/reservations/')
-      .query.orderByChild('timestamp')
-      .startAt(timeStampEntree - 3600000)
-      .endAt(timeStampEntree + 3600000)
-      .on('value', (snapchot) => {
-        snapchot.forEach((snap) => {
-          this.possibilite = false;
-          this.infoService.toast(
-            'la douche est déja résérvée dans cette heure ',
-            'top',
-            'warning'
-          );
-        });
-      });
-    if (minRequis > timeStampEntree) {
-      this.infoService.toast(
-        "l'heure saisie n'est pas suffisante pour échauffer , Veuillez saisir une autre heure",
-        'top',
-        'warning'
-      );
-      this.possibilite = false;
-    } else {
-      this.possibilite = true;
-    }
-  }
-
-  getUserLoggedIin() {
-    this.User = this.authService.getUserLoggedIin();
-  }
-
   ConfirmQandT() {
     console.log('confirm clicked');
     if (this.heureEntree && this.Qed && this.Td && this.possibilite) {
       // calcul Wn
-      this.Wn = Math.ceil((this.Dn / 60) * 500);
+      this.Wn =
+        Math.ceil((this.Dn / 60) * 500) > 1
+          ? Math.ceil((this.Dn / 60) * 500)
+          : 10;
       // calcul cout
       this.User = localStorage.getItem('uid');
       this.userService.saveConsommation(
@@ -161,6 +125,47 @@ export class ConfigurationManuellePage implements OnInit {
         'top',
         'warning'
       );
+    }
+  }
+
+  CalculDnPriere(Qed) {
+    //A INTRODUIRE aussi dans settings
+    if (Qed == 3) {
+      this.Dn = 1;
+    } else if (Qed == 5) {
+      this.Dn = 2;
+    }
+  }
+
+  faisabilite() {
+    console.log('faisibilite running');
+    this.CalculDnPriere(this.Qed);
+    let minRequis = this.Dn * 60000 + new Date().getTime();
+    let timeStampEntree = new Date(this.heureEntree).getTime();
+    this.fdb
+      .object('/reservations/')
+      .query.orderByChild('timestamp')
+      .startAt(timeStampEntree - 3600000)
+      .endAt(timeStampEntree + 3600000)
+      .on('value', (snapchot) => {
+        snapchot.forEach((snap) => {
+          this.possibilite = false;
+          this.infoService.toast(
+            'la douche est déja résérvée dans cette heure ',
+            'top',
+            'warning'
+          );
+        });
+      });
+    if (minRequis > timeStampEntree) {
+      this.infoService.toast(
+        "l'heure saisie n'est pas suffisante pour échauffer , Veuillez saisir une autre heure",
+        'top',
+        'warning'
+      );
+      this.possibilite = false;
+    } else {
+      this.possibilite = true;
     }
   }
 }

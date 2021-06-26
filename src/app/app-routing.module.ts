@@ -20,7 +20,11 @@ const routes: Routes = [
       import('./pages/register/register.module').then(
         (m) => m.RegisterPageModule
       ),
+  },  {
+    path: 'configuration-automatique',
+    loadChildren: () => import('./configuration-automatique/configuration-automatique.module').then( m => m.ConfigurationAutomatiquePageModule)
   },
+
 ];
 @NgModule({
   imports: [
